@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기_iamdt</title>
+  </head>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #calculator {
+      width: 200px;
+      height: 400px;
+      background-color: #000000;
+      padding: 0.8rem;
+      box-sizing: border-box;
+    }
+    .calculator-result {
+      width: 100%;
+      height: 10rem;
+      color: #ffffff;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 0.4rem 0;
+    }
+    .calculator-buttons-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      height: calc(100% - 10rem);
+    }
+    .calculator-buttons {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      gap: 0.8rem;
+    }
+    .calculator-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0px;
+      color: #ffffff;
+      background-color: #5656566d;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .calculator-button:hover {
+      background-color: #d4d5946d;
+    }
+    .calculator-button-0 {
+      width: 88px;
+      height: 40px;
+      border-radius: 1.6rem;
+      color: #ffffff;
+      background-color: #5656566d;
+    }
+  </style>
+  <body>
+    <div id="calculator">
+      <div class="calculator-result">11230</div>
+      <div class="calculator-buttons-wrap">
+        <div class="calculator-buttons">
+          <button class="calculator-button">AC</button>
+          <button class="calculator-button">+/-</button>
+          <button class="calculator-button">%</button>
+          <button class="calculator-button">/</button>
+        </div>
+        <div class="calculator-buttons">
+          <button class="calculator-button">7</button>
+          <button class="calculator-button">8</button>
+          <button class="calculator-button">9</button>
+          <button class="calculator-button">X</button>
+        </div>
+        <div class="calculator-buttons">
+          <button class="calculator-button">4</button>
+          <button class="calculator-button">5</button>
+          <button class="calculator-button">6</button>
+          <button class="calculator-button">-</button>
+        </div>
+        <div class="calculator-buttons">
+          <button class="calculator-button">1</button>
+          <button class="calculator-button">2</button>
+          <button class="calculator-button">3</button>
+          <button class="calculator-button">+</button>
+        </div>
+        <div class="calculator-buttons">
+          <button class="calculator-button calculator-button-0">0</button>
+          <button class="calculator-button">.</button>
+          <button class="calculator-button">=</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
