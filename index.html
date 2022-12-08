@@ -68,39 +68,46 @@
       color: #ffffff;
       background-color: #5656566d;
     }
+
+    .calculator-button-option {
+      background-color: gray;
+    }
+    .calculator-button-calmode {
+      background-color: orange;
+    }
   </style>
   <body>
     <div id="calculator">
       <div class="calculator-result"></div>
       <div class="calculator-buttons-wrap">
         <div class="calculator-buttons">
-          <button class="calculator-button">C</button>
-          <button class="calculator-button">+/-</button>
-          <button class="calculator-button">%</button>
-          <button class="calculator-button">/</button>
+          <button class="calculator-button calculator-button-option">C</button>
+          <button class="calculator-button calculator-button-option">+/-</button>
+          <button class="calculator-button calculator-button-option">%</button>
+          <button class="calculator-button calculator-button-calmode">/</button>
         </div>
         <div class="calculator-buttons">
           <button class="calculator-button">7</button>
           <button class="calculator-button">8</button>
           <button class="calculator-button">9</button>
-          <button class="calculator-button">X</button>
+          <button class="calculator-button calculator-button-calmode">X</button>
         </div>
         <div class="calculator-buttons">
           <button class="calculator-button">4</button>
           <button class="calculator-button">5</button>
           <button class="calculator-button">6</button>
-          <button class="calculator-button">-</button>
+          <button class="calculator-button calculator-button-calmode">-</button>
         </div>
         <div class="calculator-buttons">
           <button class="calculator-button">1</button>
           <button class="calculator-button">2</button>
           <button class="calculator-button">3</button>
-          <button class="calculator-button">+</button>
+          <button class="calculator-button calculator-button-calmode">+</button>
         </div>
         <div class="calculator-buttons">
           <button class="calculator-button calculator-button-0">0</button>
           <button class="calculator-button">.</button>
-          <button class="calculator-button">=</button>
+          <button class="calculator-button calculator-button-calmode">=</button>
         </div>
       </div>
     </div>
