@@ -234,6 +234,10 @@ function addDot() {
   }
 }
 
+/**
+ * @description 입력값이 js에서 표현가능한 최대값 혹은 최소값을 넘어가는지 판별.
+ */
+
 function isValidNumber(value: number) {
   if (value > Number.MAX_VALUE || value < Number.MIN_VALUE) return false;
   return true;
