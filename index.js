@@ -22,42 +22,34 @@ function init() {
  */
 function onClickButton(event) {
     var textContent = event.target.textContent;
-    console.log(textContent, textContent.length);
     if (textContent.length > 10)
         return; // 공백 클릭했을 때는 return;
     if (isNumber(textContent)) {
         // 숫자라면
         addNumber(textContent);
-        console.log(numberOrOperatorArr);
         return;
     }
     else if (textContent === '=') {
         calculate();
-        console.log(numberOrOperatorArr);
         return;
     }
     else if (textContent === 'C') {
         reset();
-        console.log(numberOrOperatorArr);
         return;
     }
     else if (textContent === '+/-') {
         changePositiveNegativeOfNumber();
-        console.log(numberOrOperatorArr);
         return;
     }
     else if (textContent === '%') {
         div100();
-        console.log(numberOrOperatorArr);
         return;
     }
     else if (textContent === '.') {
         addDot();
-        console.log(numberOrOperatorArr);
         return;
     }
     addSubMulDiv(textContent);
-    console.log(numberOrOperatorArr);
 }
 /**
  * @description 숫자가 입력 및 변경됐을 때 화면을 랜더링하는 함수.
@@ -119,6 +111,8 @@ function addNumber(num) {
                 break;
             }
             var changedNumber = "".concat(numberOrOperatorArr[i]).concat(num);
+            if (changedNumber.length > 9)
+                return;
             numberOrOperatorArr[i] = changedNumber;
             rendering(changedNumber);
             break;
@@ -194,7 +188,6 @@ function isNumber(value) {
  * @description 입력된 두개의 operator를 우선순위를 판단하는 함수. true면 첫번째 연산자가 더 높은 우선순위.
  */
 function checkPriorityOperator(firstOperator, secondOperator) {
-    console.log(OperatorOrder[firstOperator], OperatorOrder[secondOperator]);
     if (OperatorOrder[firstOperator] > OperatorOrder[secondOperator])
         return true;
     else
@@ -248,7 +241,6 @@ function calculatePostfix(postfixArr) {
             // 숫자 두개를 빼서 연산하기
             var secondNum = numberArr.pop();
             var firstNum = numberArr.pop();
-            console.log('숫자랑 mode', firstNum, secondNum, index);
             if (firstNum && secondNum) {
                 var calculatedNumber = calculateNumber({
                     mode: index,

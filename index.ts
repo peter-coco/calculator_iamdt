@@ -3,7 +3,7 @@ const calculatedResult = document.querySelector('.calculator-result');
 
 let numberOrOperatorArr: string[] = ['0'];
 
-const OperatorOrder = {
+const OperatorOrder: any = {
   '+': 1,
   '-': 1,
   X: 2,
@@ -27,40 +27,32 @@ function init() {
  * @description 계산기 버튼을 클릭하면 발생하는 함수. 어떤 버튼을 클릭했냐에 따라 로직이 분기됨.
  */
 
-function onClickButton(event) {
+function onClickButton(event: any) {
   const { textContent } = event.target;
 
-  console.log(textContent, textContent.length);
   if (textContent.length > 10) return; // 공백 클릭했을 때는 return;
   if (isNumber(textContent)) {
     // 숫자라면
     addNumber(textContent);
-    console.log(numberOrOperatorArr);
     return;
   } else if (textContent === '=') {
     calculate();
-    console.log(numberOrOperatorArr);
     return;
   } else if (textContent === 'C') {
     reset();
-    console.log(numberOrOperatorArr);
     return;
   } else if (textContent === '+/-') {
     changePositiveNegativeOfNumber();
-    console.log(numberOrOperatorArr);
     return;
   } else if (textContent === '%') {
     div100();
-    console.log(numberOrOperatorArr);
     return;
   } else if (textContent === '.') {
     addDot();
-    console.log(numberOrOperatorArr);
     return;
   }
 
   addSubMulDiv(textContent);
-  console.log(numberOrOperatorArr);
 }
 
 /**
@@ -131,6 +123,7 @@ function addNumber(num: string) {
         break;
       }
       const changedNumber = `${numberOrOperatorArr[i]}${num}`;
+      if (changedNumber.length > 9) return;
       numberOrOperatorArr[i] = changedNumber;
       rendering(changedNumber);
       break;
@@ -215,8 +208,7 @@ function isNumber(value: string) {
  * @description 입력된 두개의 operator를 우선순위를 판단하는 함수. true면 첫번째 연산자가 더 높은 우선순위.
  */
 
-function checkPriorityOperator(firstOperator: string, secondOperator: string) {
-  console.log(OperatorOrder[firstOperator], OperatorOrder[secondOperator]);
+function checkPriorityOperator(firstOperator: any, secondOperator: any) {
   if (OperatorOrder[firstOperator] > OperatorOrder[secondOperator]) return true;
   else false;
 }
@@ -273,7 +265,6 @@ function calculatePostfix(postfixArr: string[]) {
       const secondNum = numberArr.pop();
       const firstNum = numberArr.pop();
 
-      console.log('숫자랑 mode', firstNum, secondNum, index);
       if (firstNum && secondNum) {
         const calculatedNumber = calculateNumber({
           mode: index as '+' | '-' | 'X' | '/',
